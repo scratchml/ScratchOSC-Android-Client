@@ -1,3 +1,35 @@
+package changethispackage.beforesubmitting.tothemarket.scratchosc;
+
+import processing.core.*; 
+
+import android.app.Notification; 
+import android.app.NotificationManager; 
+import android.os.PowerManager; 
+import android.os.PowerManager.WakeLock; 
+import android.content.Context; 
+import android.hardware.Sensor; 
+import android.hardware.SensorEvent; 
+import android.hardware.SensorManager; 
+import android.hardware.SensorEventListener; 
+import java.net.*; 
+import oscP5.*; 
+import netP5.*; 
+
+import org.slf4j.helpers.*; 
+import org.slf4j.*; 
+import org.slf4j.spi.*; 
+import org.slf4j.impl.*; 
+import oscP5.*; 
+import netP5.*; 
+
+import android.view.MotionEvent; 
+import android.view.KeyEvent; 
+import android.graphics.Bitmap; 
+import java.io.*; 
+import java.util.*; 
+
+public class ScratchOSC extends PApplet {
+
 /**
 * ScratchML Android Client
 * Renders Realtime ScratchML Data from a Turntable running ScratchOSC
@@ -26,18 +58,18 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorManager;
-import android.hardware.SensorEventListener;
-import java.net.*; 
-import oscP5.*;
-import netP5.*;
+
+
+
+
+
+
+
+
+
+ 
+
+
 
 // Setup vibration globals:
 NotificationManager gNotificationManager;
@@ -65,15 +97,15 @@ float rad;
 
 float frame_R, frame_L, progressL, progressR, rotation_L, rotation_R, fade;
 
-void setup() {
+public void setup() {
   scLock = new LockScreen(this.getApplicationContext());
-  size(screenWidth, screenHeight);
+ 
   sw = screenWidth;
   sh = screenHeight;
   rad = sh/2; 
   // Set this so the sketch won't reset as the phone is rotated:
   orientation(LANDSCAPE);
-  fade = 1.0;
+  fade = 1.0f;
   scLock.Start();
   frameRate(20);
   
@@ -93,9 +125,9 @@ void setup() {
   smooth();
 }
 
-void draw() {
-  float X = sw / 4.0;
-  float Y = sh / 2.0;
+public void draw() {
+  float X = sw / 4.0f;
+  float Y = sh / 2.0f;
   step = 100;
 
   // Fill canvas grey
@@ -128,9 +160,9 @@ void draw() {
   
   /*turns on the device vibrator if the fader it hit */
   
-  if(fade == 0.0){
+  if(fade == 0.0f){
     gNotificationManager.notify(1, gNotification);
-    fade = 1.0;
+    fade = 1.0f;
   }
   
 
@@ -139,8 +171,8 @@ void draw() {
   frame_L = frame_R;
   rotation_R = map(frame_R, 0, 1800, 0, TWO_PI);
   rotation_L = map(frame_L, 0, 1800, 0, TWO_PI); 
-  line(X, Y, cos(rotation_L) * (X*0.92) + X, sin(rotation_L) * (Y*0.92) + Y);
-  line(3*X, Y, cos(rotation_R) * (X*0.92) + 3*X, sin(rotation_R) * (Y*0.92) + Y);
+  line(X, Y, cos(rotation_L) * (X*0.92f) + X, sin(rotation_L) * (Y*0.92f) + Y);
+  line(3*X, Y, cos(rotation_R) * (X*0.92f) + 3*X, sin(rotation_R) * (Y*0.92f) + Y);
 
 }
 
@@ -154,7 +186,7 @@ void draw() {
 *
 */
 
-void oscEvent(OscMessage theOscMessage) {
+public void oscEvent(OscMessage theOscMessage) {
   
   if (theOscMessage.checkAddrPattern("/scratch/record/right")==true) {
     float firstValue = theOscMessage.get(0).floatValue();
@@ -174,7 +206,7 @@ void oscEvent(OscMessage theOscMessage) {
   }
 }
 
-void onResume() {
+public void onResume() {
   super.onResume();
   gNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
   // Create our Notification that will do the vibration:
@@ -222,3 +254,7 @@ class LockScreen {
   }
 }
 
+
+  public int sketchWidth() { return screenWidth; }
+  public int sketchHeight() { return screenHeight; }
+}

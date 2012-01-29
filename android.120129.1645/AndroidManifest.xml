@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="changethispackage.beforesubmitting.tothemarket.scratchosc">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="changethispackage.beforesubmitting.tothemarket.scratchml">
   <uses-sdk android:minSdkVersion="8"/>
-  <application android:debuggable="true" android:icon="@drawable/icon" android:label="ScratchOSC">
-    <activity android:name=".ScratchOSC">
+  <application android:debuggable="true" android:icon="@drawable/icon" android:label="ScratchML">
+    <activity android:name=".ScratchML">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>

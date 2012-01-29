@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="ScratchOSC" default="help">
+<project name="ScratchML" default="help">
   <loadproperties srcFile="local.properties" />
   <property file="ant.properties" />
   <loadproperties srcFile="project.properties" />
