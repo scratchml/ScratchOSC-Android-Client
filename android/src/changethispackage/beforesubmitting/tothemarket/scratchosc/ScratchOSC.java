@@ -86,9 +86,6 @@ float sw, sh;
 String[] fontList;
 PFont androidFont;
 
-// Setup variables for the SensorManager, the SensorEventListeners,
-// the Sensors, and the arrays to hold the resultant sensor values:
-
 LockScreen scLock;
 OscP5 oscP5;
 NetAddress myRemoteLocation;

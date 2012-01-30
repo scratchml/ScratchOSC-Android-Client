@@ -63,7 +63,7 @@ NetAddress myRemoteLocation;
 
 float rad;
 
-float frame_R, frame_L, progressL, progressR, rotation_L, rotation_R, fade;
+float step, frame_R, frame_L, progressL, progressR, rotation_L, rotation_R, fade;
 
 void setup() {
   scLock = new LockScreen(this.getApplicationContext());
@@ -77,18 +77,19 @@ void setup() {
   scLock.Start();
   frameRate(20);
   
-  /* starts oscP5, listening for incoming messages at port 12000 */
-  /* this should automatically grab the IP of your device */
-  /* please note you need to be connected to WiFi */
+  /* starts oscP5, listening for incoming messages at port 12000 
+   * this should automatically grab the IP of your device 
+  */ please note you need to be connected to WiFi 
+  
   oscP5 = new OscP5(this, getLocalIpAddress(), 8319);
-  //  
-  //  /* myRemoteLocation is a NetAddress. a NetAddress takes 2 parameters,
-  //   * an ip address and a port number. myRemoteLocation is used as parameter in
-  //   * oscP5.send() when sending osc packets to another computer, device, 
-  //   * application. usage see below. for testing purposes the listening port
-  //   * and the port of the remote location address are the same, hence you will
-  //   * send messages back to this sketch.
-  //   */
+    
+    /* myRemoteLocation is a NetAddress. a NetAddress takes 2 parameters,
+     * an ip address and a port number. myRemoteLocation is used as parameter in
+     * oscP5.send() when sending osc packets to another computer, device, 
+     * application. usage see below. for testing purposes the listening port
+     * and the port of the remote location address are the same, hence you will
+     * send messages back to this sketch.
+     */
   myRemoteLocation = new NetAddress(getLocalIpAddress(), 8319);
   smooth();
 }
