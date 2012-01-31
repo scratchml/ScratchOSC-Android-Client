@@ -78,9 +78,10 @@ void setup() {
   frameRate(20);
   
   /* starts oscP5, listening for incoming messages at port 12000 
-   * this should automatically grab the IP of your device 
-  */ please note you need to be connected to WiFi 
-  
+  * this should automatically grab the IP of your device 
+  * please note you need to be connected to WiFi 
+  */
+
   oscP5 = new OscP5(this, getLocalIpAddress(), 8319);
     
     /* myRemoteLocation is a NetAddress. a NetAddress takes 2 parameters,
